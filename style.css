@@ -1,0 +1,280 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+  background-color: #000000;
+}
+
+body {
+  width: 70%;
+  min-width: 800px;
+  margin: 0 auto;
+}
+
+/* || typography */
+
+h1, h2, h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #ffffff;
+}
+
+p, input, li {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  text-shadow: 2px 2px 10px rgba(107, 3, 155, 0.548);
+}
+
+.vindo {
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:rgb(155, 52, 252);
+  border-style: dotted;
+  border-width: 5px 4px;
+}
+
+.li {
+  text-align:left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #ffee00;
+}
+
+.fotos {
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: cursive;
+  color: #ff0000;
+  background-color: rgb(0, 0, 0);
+  border: solid red;
+  border-width: 8px 8px;
+}
+
+#titulo {
+  color:rgb(190, 6, 31); 
+  background-color: rgb(255, 255, 255);
+  font-family: 'Courier New', Courier, monospace;
+  border-style: solid;
+  border-width: 20px 30px;
+  border-color: #F08080;
+ 
+}
+
+.regras {
+  color:#252525; 
+  font-size: 2.5rem;
+  font-family: fantasy;
+  border-style: groove;
+  border-width: 5px 10px;
+  border-color: #4e4d4d;
+}
+
+.estilo {
+  color:#f302ab; 
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 3rem;
+  border-style: inset;
+  border-color: #e46cd4;
+  border-width: 5px 10px;
+}
+
+.tipos {
+  color:#000000; 
+  border-style: ridge;
+  border-color: #000000;
+  font-size: 3rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-width: 8px 8px;;
+}
+
+.jogos {
+  color:#fff9a9; 
+  border-top-style: dotted;
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-width: 3px 8px;
+  border-color: #fbff00;
+  border-left-style: solid;
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.primeiro {
+  background-color: #F08080;
+}
+
+.p1 {
+  color: rgb(155, 52, 252);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.assunto {
+  color: #fa0000;
+  text-align: left;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2rem;
+  margin: 2%;
+}
+
+.p2 {
+  color: #1d1d30;
+  font-family: cursive;
+}
+
+.p3 {
+  color: #f70793;
+  font-family: 'Times New Roman', Times, serif;
+
+}
+
+.p4 {
+  color: #ff0396;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-style: hidden;
+  font-size: 2rem;
+  border: solid #2e2424;
+  border-width: 3px 100px;
+  background-color: rgba(255, 255, 255, 0.767);
+
+}
+
+.p5 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #000000;
+
+}
+
+.p6 {
+  color: #dff800;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h4 {
+  font-size: 2rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #ffffff;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+p, li {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/* || header layout */
+
+header {
+  margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+body {
+  background-color: rgba(248, 251, 255, 0.856);
+  padding: 1%;
+}
+
+nav {
+  background-color: #F08080;
+}
+
+main, article, aside, footer, section {
+  background-color: rgba(255, 255, 255, 0.63);
+  padding: 1%;
+}
+
+h1 {
+  flex: 5;
+  text-transform: uppercase;
+}
+
+header img {
+  display: block;
+  height: 60px;
+  padding-top: 20.15px;
+}
+
+footer img {
+  display: block;
+  height: 150px;
+}
+
+nav {
+  height: 50px;
+  flex: 100%;
+  display: flex;
+}
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  flex: 2;
+  display: flex;
+}
+
+.r {
+  color: #cb8deb;
+}
+
+nav li {
+  display: inline;
+  text-align: center;
+  flex: 1;
+}
+
+nav a, nav span {
+  display: inline-block;
+  font-size: 2rem;
+  height: 3rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #680414;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+  display: flex;
+}
+
+article,section {
+  flex: 4;
+  text-align: center
+}
+
+article img {
+  max-width: 50%;
+}
+
+aside {
+  flex: 1;
+  margin-left: 10px;
+  padding: 1%;
+}
+
+aside a {
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+aside img {
+  max-width: 100%;
+}
+
+footer {
+  margin-top: 10px;
+}
+
+.final {
+  color: #000000;
+}
