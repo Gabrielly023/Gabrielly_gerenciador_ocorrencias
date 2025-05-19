@@ -8,8 +8,8 @@
 /* Corpo da página */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #152b41;
-    color: #333;
+    background-color: #020338;
+    color: #00000094;
     min-height: 100vh;
     display: flex;
     justify-content: center; /* Centraliza horizontalmente */
@@ -22,7 +22,7 @@ form {
     background-color: #ffffff;
     padding: 30px 40px;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 20px rgb(21, 196, 250);
     width: 100%;
     max-width: 500px;
     display: flex;
@@ -46,9 +46,10 @@ input, select, textarea {
     width: 100%;
     padding: 12px 14px;
     margin-top: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #0c0101;
     border-radius: 6px;
     background-color: #f9f9f9;
+   
 }
 
 button {
@@ -62,10 +63,13 @@ button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgb(0, 225, 255);
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #055bdb;
+    
 }
 
 
