@@ -1,18 +1,22 @@
 import mysql.connector
 
-try:
-    conexao = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",        # XAMPP por padrão usa senha vazia
-        database="registro_ocorrencias" # nome do banco criado no phpMyAdmin
-    )
+conexao = mysql.connector.connect(
+    host='localhost',
+    user='root',
+    password='',
+    database='registro_ocorrencias'
+)
 
-    if conexao.is_connected():
-        print("Conexão bem-sucedida com o banco de dados!")
+cursor = conexao.cursor()
 
-except mysql.connector.Error as erro:
-    print(f"Erro ao conectar: {erro}")
+comando = "SELECT * FROM ocorrencias"
+cursor.execute(comando)
+resultado = cursor.fetchall()
+
+for linha in resultado:
+    print(linha)
+
+conexao.close()
 
 
 

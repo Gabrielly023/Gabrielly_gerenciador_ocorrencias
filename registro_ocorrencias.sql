@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS registro_ocorrencias;
+
+USE registro_ocorrencias;
+
 CREATE TABLE ocorrencias (
     id INT AUTO_INCREMENT PRIMARY KEY,
     aluno VARCHAR(100) NOT NULL,
@@ -8,7 +12,6 @@ CREATE TABLE ocorrencias (
 
 CREATE TABLE ocorrencias_graves (
     id INT PRIMARY KEY,
-    nivel_gravidade VARCHAR(50) NOT NULL,
-    FOREIGN KEY (id) REFERENCES ocorrencias(id) ON DELETE CASCADE
+    nivel_gravidade ENUM('Baixa', 'Média', 'Alta') NOT NULL,
+    FOREIGN KEY (id) REFERENCES ocorrencias(id)
 );
-

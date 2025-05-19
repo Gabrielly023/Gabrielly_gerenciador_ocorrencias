@@ -1,11 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <title>Registro de Ocorrência Escolar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>gaby</h2>
+
+    <form id="form-ocorrencia">
+        <h2><b>Registro de Ocorrência Escolar</h2>
+
+        <label for="aluno"><b>Nome do Aluno:</b></label>
+        <input type="text" id="aluno" name="aluno" required>
+
+        <label for="data"><b>Data da Ocorrência:</b></label>
+        <input class="tipo" type="date" id="data" name="data" required>
+
+        <label for="descricao"><b>Descrição:</b></label>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+        <label for="tipo"><b>Tipo de Ocorrência:</b></label>
+        <select id="tipo" name="tipo" required>
+            <option class="tipo" value="" disabled selected>Selecione o tipo</option>
+            <option value="simples">Simples</option>
+            <option value="grave">Grave</option>
+        </select>
+
+        <div id="campo-gravidade" style="display: none;">
+            <label for="gravidade">Nível de Gravidade:</label>
+            <select id="gravidade" name="gravidade">
+                <option value="" disabled selected>Selecione o nível</option>
+                <option value="Baixa">Baixa</option>
+                <option value="Média">Média</option>
+                <option value="Alta">Alta</option>
+            </select>
+        </div>
+
+        <button type="submit"><b>Registrar</b></button>
+    </form>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
+
