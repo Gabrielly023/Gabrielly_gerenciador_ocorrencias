@@ -1,75 +1,108 @@
 /* Reset básico */
+/* Resetando alguns estilos padrões */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo da página */
+/* Estilo para o corpo da página */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #020338;
-    color: #00000094;
-    min-height: 100vh;
-    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e4a;
+    margin: 0;
+    padding: 0;
+    display: flex;           /* Adiciona Flexbox para centralizar */
     justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    height: 100%;             /* Garante que a altura da tela seja 100% */
+    min-height: 100vh;        /* Garantir que ocupe pelo menos 100% da altura da tela */
+}
+
+/* Container do formulário */
+.container {
+    width: 50%;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px; /* Adicionando margem externa */
 }
 
-/* Formulário */
-form {
-    background-color: #ffffff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgb(21, 196, 250);
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column; /* Organiza os itens de forma vertical */
-}
-
-h2 {
+/* Título do formulário */
+h1 {
     text-align: center;
-    margin-bottom: 25px;
-    color: #2298f8;
+    color: #333;
 }
 
+/* Estilo para os rótulos */
 label {
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
     display: block;
-    margin-top: 20px;
-    font-weight: 600;
-    color: #000000;
 }
 
+/* Estilo para os campos de entrada */
 input, select, textarea {
     width: 100%;
-    padding: 12px 14px;
-    margin-top: 6px;
-    border: 1px solid #0c0101;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-   
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
+/* Estilo para o campo de texto (textarea) */
+textarea {
+    resize: vertical;
+    height: 150px; /* Ajuste a altura conforme necessário */
+}
+
+/* Estilo para o rodapé do formulário */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilo para os botões */
 button {
-    margin-top: 25px;
-    width: 100%;
-    padding: 14px;
-    background-color: #2298f8;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 6px;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 0 10px rgb(0, 225, 255);
+    transition: background-color 0.3s ease; /* Adicionando transição */
+}
+
+button[type="reset"] {
+    background-color: #f44336;
 }
 
 button:hover {
-    background-color: #055bdb;
-    
+    background-color: #45a049;
 }
+
+button[type="reset"]:hover {
+    background-color: #e53935;
+}
+
+/* Estilo para o texto de informações abaixo do formulário */
+.info-text {
+    font-size: 0.9rem;
+    color: #777;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+
 
 
