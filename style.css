@@ -1,108 +1,113 @@
 /* Reset básico */
-/* Resetando alguns estilos padrões */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Estilo para o corpo da página */
+/* Corpo com fundo suave e centralização usando flexbox */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1e1e4a;
-    margin: 0;
-    padding: 0;
-    display: flex;           /* Adiciona Flexbox para centralizar */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center;     /* Centraliza verticalmente */
-    height: 100%;             /* Garante que a altura da tela seja 100% */
-    min-height: 100vh;        /* Garantir que ocupe pelo menos 100% da altura da tela */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1b012c; /* azul clarinho */
+  display: flex;             /* flex container */
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: center;       /* centraliza verticalmente */
+  min-height: 100vh;         /* altura mínima da viewport */
+  padding: 1rem;
 }
 
 /* Container do formulário */
-.container {
-    width: 50%;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin: 10px; /* Adicionando margem externa */
+form {
+  background: #f3a9fff9;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 480px;
+  width: 100%;
+
+  box-shadow: 0 8px 20px rgb(223, 40, 230);
+
+  display: flex;             /* flex container */
+  flex-direction: column;    /* empilhar verticalmente */
+  gap: 1.25rem;              /* espaçamento entre itens */
+  align-items: stretch;      /* preencher largura dos campos */
 }
 
-/* Título do formulário */
+/* Título principal */
 h1 {
-    text-align: center;
-    color: #333;
+  color: #1b012c; /* azul escuro */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  width: 100%;               /* ocupa toda a largura para centralizar texto */
 }
 
-/* Estilo para os rótulos */
+/* Labels */
 label {
-    font-size: 1rem;
-    color: #333;
-    margin-top: 10px;
-    display: block;
+  font-weight: 600;
+  color: #000000; /* azul médio */
+  margin-bottom: 0.4rem;
+  display: block;
 }
 
-/* Estilo para os campos de entrada */
-input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+/* Inputs, textarea e select estilizados */
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #aa04d3; /* azul clarinho borda */
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #000000;
+  transition: border-color 0.3s ease;
+  width: 100%;              /* largura total do container */
+  font-family: inherit;
 }
 
-/* Estilo para o campo de texto (textarea) */
+/* Foco nos campos */
+input[type="text"]:focus,
+input[type="date"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #dbc6db;
+  outline: none;
+  background: #f7d9ee;
+}
+
+/* Textarea maior */
 textarea {
-    resize: vertical;
-    height: 150px; /* Ajuste a altura conforme necessário */
+  min-height: 100px;
+  resize: vertical;
 }
 
-/* Estilo para o rodapé do formulário */
-.form-footer {
-    display: flex;
-    justify-content: space-between;
+/* Botão principal */
+button[type="submit"] {
+  background: #f7d9ee;
+  color: #1b012c;
+  font-weight: 700;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+  width: 100%;             /* botão ocupa toda a largura */
 }
 
-/* Estilo para os botões */
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Adicionando transição */
+/* Hover botão */
+button[type="submit"]:hover {
+  background: #d27eee;
 }
 
-button[type="reset"] {
-    background-color: #f44336;
+/* Responsividade */
+@media (max-width: 500px) {
+  form {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
 }
 
-button:hover {
-    background-color: #45a049;
-}
 
-button[type="reset"]:hover {
-    background-color: #e53935;
-}
-
-/* Estilo para o texto de informações abaixo do formulário */
-.info-text {
-    font-size: 0.9rem;
-    color: #777;
-    text-align: center;
-    margin-top: 15px;
-}
-
-/* Responsividade para telas pequenas */
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-}
 
 
 

@@ -1,55 +1,55 @@
-// formulario.js
-document.addEventListener("DOMContentLoaded", function () {
-    // Elementos do formulário
-    const tipoSelect = document.getElementById("tipo");
-    const campoGravidade = document.getElementById("campo-gravidade");
-    const form = document.getElementById("form-ocorrencia");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('ocorrencia-form');
 
-    // Verifica se os elementos foram carregados corretamente
-    if (!tipoSelect || !campoGravidade || !form) {
-        console.error("Erro: elementos do formulário não foram encontrados.");
-        return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // evita envio real da página
+
+    // Pegar valores dos campos
+    const nomeAluno = form.nome_aluno.value.trim();
+    const data = form.data.value;
+    const descricao = form.descricao.value.trim();
+    const nivel = form.nivel_gravidade.value;
+
+    // Validação simples
+    if (!nomeAluno) {
+      alert('Por favor, preencha o nome do aluno.');
+      form.nome_aluno.focus();
+      return;
     }
 
-    // Exibe ou oculta o campo de gravidade com base na seleção de tipo
-    tipoSelect.addEventListener("change", function () {
-        const isGrave = this.value === "grave";
-        campoGravidade.style.display = isGrave ? "block" : "none";
-    });
+    if (!data) {
+      alert('Por favor, selecione a data da ocorrência.');
+      form.data.focus();
+      return;
+    }
 
-    // Captura os dados do formulário ao enviar
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
+    if (!descricao) {
+      alert('Por favor, descreva a ocorrência.');
+      form.descricao.focus();
+      return;
+    }
 
-        const aluno = document.getElementById("aluno")?.value.trim() || "";
-        const data = document.getElementById("data")?.value || "";
-        const descricao = document.getElementById("descricao")?.value.trim() || "";
-        const tipo = tipoSelect.value;
-        const gravidade = document.getElementById("gravidade")?.value || "";
+    if (!nivel) {
+      alert('Por favor, selecione o nível de gravidade.');
+      form.nivel_gravidade.focus();
+      return;
+    }
 
-        // Validação simples (pode ser expandida)
-        if (!aluno || !data || !descricao || !tipo || (tipo === "grave" && !gravidade)) {
-            alert("⚠️ Por favor, preencha todos os campos obrigatórios.");
-            return;
-        }
+    // Se passou tudo, mostra os dados (pode substituir pelo envio real)
+    alert(
+      `Ocorrência registrada com sucesso!\n\n` +
+      `Nome do Aluno: ${nomeAluno}\n` +
+      `Data: ${data}\n` +
+      `Descrição: ${descricao}\n` +
+      `Nível de Gravidade: ${nivel}`
+    );
 
-        // Simulação de envio / registro
-        console.log("=== Ocorrência Registrada ===");
-        console.log("Aluno:", aluno);
-        console.log("Data:", data);
-        console.log("Descrição:", descricao);
-        console.log("Tipo:", tipo);
-
-        if (tipo === "grave") {
-            console.log("Nível de Gravidade:", gravidade);
-        }
-
-        alert("✅ Ocorrência registrada (simulação). Verifique o console para os detalhes.");
-
-        // Resetar o formulário (opcional)
-        form.reset();
-        campoGravidade.style.display = "none";
-    });
+    // Limpar formulário
+    form.reset();
+  });
 });
+
+
+
 
 

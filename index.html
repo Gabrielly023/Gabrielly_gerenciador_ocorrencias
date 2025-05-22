@@ -1,70 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Ocorrências Escolares</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link para o arquivo CSS -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registro de Ocorrências</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="container">
-        <h1>Registro de Ocorrência Escolar</h1>
+  <form id="ocorrencia-form" action="#" method="POST" novalidate>
+    <h1>Registrar Ocorrência</h1>
 
-        <form action="processar_ocorrencia.php" method="POST">
-            <!-- Nome do Aluno -->
-            <label for="aluno">Nome do Aluno:</label>
-            <input type="text" id="aluno" name="aluno" required placeholder="Digite o nome do aluno">
+    <label for="nome_aluno">Nome do Aluno:</label>
+    <input type="text" id="nome_aluno" name="nome_aluno" required placeholder="Digite o nome do aluno" />
 
-            <!-- Data da Ocorrência -->
-            <label for="data">Data da Ocorrência:</label>
-            <input type="date" id="data" name="data" required>
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" required />
 
-            <!-- Descrição da Ocorrência -->
-            <label for="descricao">Descrição da Ocorrência:</label>
-            <textarea id="descricao" name="descricao" rows="4" required placeholder="Descreva o que ocorreu..."></textarea>
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao" rows="4" required placeholder="Descreva a ocorrência"></textarea>
 
-            <!-- Tipo de Ocorrência (Simples ou Grave) -->
-            <label for="tipo">A ocorrência é grave?</label>
-            <select id="tipo" name="tipo" required>
-                <option value="simples">Simples</option>
-                <option value="grave">Grave</option>
-            </select>
+    <label for="nivel_gravidade">Nível de Gravidade:</label>
+    <select id="nivel_gravidade" name="nivel_gravidade" required>
+      <option value="" disabled selected>Selecione o nível</option>
+      <option value="Baixa">Baixa</option>
+      <option value="Média">Média</option>
+      <option value="Alta">Alta</option>
+    </select>
 
-            <!-- Nível de Gravidade (aparece apenas se a ocorrência for grave) -->
-            <div id="nivel_gravidade_div" style="display: none;">
-                <label for="nivel_gravidade">Nível de Gravidade:</label>
-                <select id="nivel_gravidade" name="nivel_gravidade">
-                    <option value="Baixa">Baixa</option>
-                    <option value="Média">Média</option>
-                    <option value="Alta">Alta</option>
-                </select>
-            </div>
+    <button type="submit">Registrar</button>
+  </form>
 
-            <div class="form-footer">
-                <button type="submit">Registrar Ocorrência</button>
-                <button type="reset">Limpar</button>
-            </div>
-        </form>
-
-        <div class="info-text">
-            <p>Informe todos os campos corretamente para registrar a ocorrência escolar!</p>
-        </div>
-    </div>
-
-    <script>
-        // Mostrar campo de Nível de Gravidade somente se a ocorrência for grave
-        const tipoSelect = document.getElementById('tipo');
-        const nivelGravidadeDiv = document.getElementById('nivel_gravidade_div');
-
-        tipoSelect.addEventListener('change', function() {
-            if (tipoSelect.value === 'grave') {
-                nivelGravidadeDiv.style.display = 'block';
-            } else {
-                nivelGravidadeDiv.style.display = 'none';
-            }
-        });
-    </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+
