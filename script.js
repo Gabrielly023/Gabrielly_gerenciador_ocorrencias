@@ -1,53 +1,66 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('ocorrencia-form');
+  const lista = document.getElementById('lista-ocorrencias');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault(); // evita envio real da página
+  // PÁGINA DE REGISTRO
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-    // Pegar valores dos campos
-    const nomeAluno = form.nome_aluno.value.trim();
-    const data = form.data.value;
-    const descricao = form.descricao.value.trim();
-    const nivel = form.nivel_gravidade.value;
+      const nomeAluno = form.nome_aluno.value.trim();
+      const data = form.data.value;
+      const descricao = form.descricao.value.trim();
+      const nivel = form.nivel_gravidade.value;
 
-    // Validação simples
-    if (!nomeAluno) {
-      alert('Por favor, preencha o nome do aluno.');
-      form.nome_aluno.focus();
+      if (!nomeAluno || !data || !descricao || !nivel) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      const novaOcorrencia = {
+        nome: nomeAluno,
+        data,
+        descricao,
+        nivel,
+        registradaEm: new Date().toLocaleString()
+      };
+
+      const ocorrencias = JSON.parse(localStorage.getItem('ocorrencias')) || [];
+      ocorrencias.push(novaOcorrencia);
+      localStorage.setItem('ocorrencias', JSON.stringify(ocorrencias));
+
+      alert('Ocorrência registrada com sucesso!');
+      form.reset();
+    });
+  }
+
+  // PÁGINA DE VISUALIZAÇÃO
+  if (lista) {
+    const ocorrencias = JSON.parse(localStorage.getItem('ocorrencias')) || [];
+
+    if (ocorrencias.length === 0) {
+      lista.innerHTML = "<p style='color: #fff; text-align: center;'>Nenhuma ocorrência registrada ainda.</p>";
       return;
     }
 
-    if (!data) {
-      alert('Por favor, selecione a data da ocorrência.');
-      form.data.focus();
-      return;
-    }
-
-    if (!descricao) {
-      alert('Por favor, descreva a ocorrência.');
-      form.descricao.focus();
-      return;
-    }
-
-    if (!nivel) {
-      alert('Por favor, selecione o nível de gravidade.');
-      form.nivel_gravidade.focus();
-      return;
-    }
-
-    // Se passou tudo, mostra os dados (pode substituir pelo envio real)
-    alert(
-      `Ocorrência registrada com sucesso!\n\n` +
-      `Nome do Aluno: ${nomeAluno}\n` +
-      `Data: ${data}\n` +
-      `Descrição: ${descricao}\n` +
-      `Nível de Gravidade: ${nivel}`
-    );
-
-    // Limpar formulário
-    form.reset();
-  });
+    lista.innerHTML = '<h2 style="color: #D6EAF8; text-align: center;">Ocorrências Registradas</h2>';
+    lista.innerHTML += ocorrencias.map(oc => `
+      <div style="background:#2C3E50; border-left: 5px solid #AED6F1; padding: 1rem; margin: 1rem 0; border-radius: 10px; color: #fff;">
+        <p><strong>Aluno:</strong> ${oc.nome}</p>
+        <p><strong>Data:</strong> ${oc.data}</p>
+        <p><strong>Descrição:</strong> ${oc.descricao}</p>
+        <p><strong>Gravidade:</strong> ${oc.nivel}</p>
+        <p style="font-size: 0.85rem; color:#ccc;"><em>Registrado em: ${oc.registradaEm}</em></p>
+      </div>
+    `).join('');
+  }
 });
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ocorrências Registradas</title>
+  <link rel="stylesheet" href="visu.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Ocorrências Registradas</h1>
+    <div id="lista-ocorrencias">
+      <!-- Ocorrências serão exibidas aqui -->
+    </div>
+    <a class="voltar" href="index.html">← Voltar ao Registro</a>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const lista = document.getElementById('lista-ocorrencias');
+      let ocorrencias = JSON.parse(localStorage.getItem('ocorrencias')) || [];
+
+      function renderizarOcorrencias() {
+        lista.innerHTML = '';
+
+        if (ocorrencias.length === 0) {
+          lista.innerHTML = '<p>Nenhuma ocorrência registrada ainda.</p>';
+          return;
+        }
+
+        ocorrencias.forEach((item, index) => {
+          const div = document.createElement('div');
+          div.className = 'ocorrencia';
+          div.innerHTML = `
+            <p><strong>Aluno:</strong> ${item.nome}</p>
+            <p><strong>Data:</strong> ${item.data}</p>
+            <p><strong>Descrição:</strong> ${item.descricao}</p>
+            <p><strong>Gravidade:</strong> ${item.nivel}</p>
+            <button class="excluir-btn" data-index="${index}">Excluir</button>
+          `;
+          lista.appendChild(div);
+        });
+
+        // Adiciona evento aos botões "Excluir"
+        document.querySelectorAll('.excluir-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const index = e.target.getAttribute('data-index');
+            ocorrencias.splice(index, 1); // Remove do array
+            localStorage.setItem('ocorrencias', JSON.stringify(ocorrencias)); // Atualiza o localStorage
+            renderizarOcorrencias(); // Re-renderiza a lista
+          });
+        });
+      }
+
+      renderizarOcorrencias();
+    });
+  </script>
+</body>
+</html>
+
